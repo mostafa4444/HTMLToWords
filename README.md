@@ -1,6 +1,6 @@
 # HTMLToWords
  
-# Before Starting my description for this repo kindly note that I didn't use github contiusly while coding this task becaus i have my machine in have some error in OS and that why i cannot access my github also you can find NewsApplication which created by and you can see the commit history for it, Kindly note that i used Github Desktop after i finished task to upload these files to github using USB 
+# Before Starting my description for this repo kindly note that I didn't use github while coding this task because i have  have some issues in OS on my machine and that why i cannot access my github also you can find NewsApplication which created by and you can see the commit history for it, Kindly note that i used Github Desktop after i finished task to upload these files to github using USB 
 
 
 # Base Section
