@@ -1,21 +1,16 @@
 package com.example.htmlwords.network
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.htmlwords.repository.remote.RemoteRepositoryImpl
-import com.example.htmlwords.utils.AppConstants
 import okhttp3.mockwebserver.MockWebServer
-import org.junit.Assert.*
-
 import org.junit.*
+import org.junit.Assert.assertNotNull
 import java.util.concurrent.TimeUnit
 
 
 class NetworkUtilityTest {
 
+    @get: Rule
     var instantExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
-        @Rule get
-
 
     private val NETWORK_CALL_URL = "https://instabug.com/"
 

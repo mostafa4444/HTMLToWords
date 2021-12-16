@@ -1,18 +1,18 @@
 package com.example.htmlwords.repository.local
 
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.example.htmlwords.model.WordModel
-import junit.framework.Assert
-import junit.framework.Assert.assertEquals
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.lang.Exception
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -25,7 +25,7 @@ class SQLiteHelperTest {
 
     @Before
     fun setUp() {
-        database = SQLiteHelper(androidx.test.InstrumentationRegistry.getTargetContext())
+        database = SQLiteHelper(ApplicationProvider.getApplicationContext())
         database.writableDatabase
     }
 
@@ -36,17 +36,16 @@ class SQLiteHelperTest {
 
     @Test
     fun testPreConditions() {
-        Assert.assertNotNull(database)
+        assertNotNull(database)
     }
 
     @Test
-    @Throws(Exception::class)
     fun testAddRaw() {
         database.insertModel(model1)
         val models: List<WordModel> = database.getAllModels()
         ViewMatchers.assertThat(models.size, CoreMatchers.`is`(1))
-        Assert.assertTrue(models[0].word == model1.word)
-        Assert.assertTrue(models[0].count == model1.count)
+        assertTrue(models[0].word == model1.word)
+        assertTrue(models[0].count == model1.count)
         deleteAll()
     }
 
@@ -70,7 +69,7 @@ class SQLiteHelperTest {
         val models = arrayListOf<WordModel>(model1 , model2 , model3)
         database.insertListOfModels(models)
         val fetchedModels = database.getAllModels()
-        ViewMatchers.assertThat(fetchedModels.size, `is`(models.size))
+        assertThat(fetchedModels.size, `is`(models.size))
         deleteAll()
     }
 
